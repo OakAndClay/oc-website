@@ -1,7 +1,64 @@
+/*
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*/
+
 @import "tailwindcss";
 
-@theme {
+.bg-image-container {
+  position: relative;
+  min-height: 100vh; /* Ensure full viewport height */
+}
+.bg-image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/img/OakClay-Vector.svg'); /* Path to your SVG image */
+  background-size: 40%;
+  background-position: center 150px;;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Fixed background */
+  opacity: 0.05; /* Background image opacity */
+  z-index: -1; /* Place behind content */
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Cinzel-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/Cinzel-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Roboto-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/Roboto-Bold.woff2') format('woff2');
+}
+
+  @theme {
   --font-cinzel: 'Cinzel', serif;
   --font-roboto: 'Roboto', sans-serif;
+
+/* 
+  --image-seal: url('/img/OakClay-Vector.svg');
+  --image-logo: url('/img/PNG-Logo-B-Black.png');
+*/
+
 }

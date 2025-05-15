@@ -4,11 +4,11 @@ import { ReactNode } from 'react';
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className= "bg-gray-900 bg-[url('/img/OakClay-Vector.svg')] bg-no-repeat bg-[center_170px] bg-fixed bg-[length:40vw] min-h-screen flex flex-col">
+      <body className= "bg-gray-800 bg-image-container">
         <header className="sticky top-0 z-50 bg-white flex items-center justify-left p-2 shadow-gray-700 shadow-2xl">
           <img 
             className="w-24 h-24 mr-4 ml-4"
-            src="/img/PNG Logo B Black.png"
+            src="/img/PNG-Logo-B-Black.png"
             alt="Company Logo"
           />
           <div>
