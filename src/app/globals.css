@@ -20,7 +20,7 @@
   background-position: center 150px;;
   background-repeat: no-repeat;
   background-attachment: fixed; /* Fixed background */
-  opacity: 0.05; /* Background image opacity */
+  opacity: 0.15; /* Background image opacity */
   z-index: -1; /* Place behind content */
 }
 
@@ -56,9 +56,5 @@
   --font-cinzel: 'Cinzel', serif;
   --font-roboto: 'Roboto', sans-serif;
 
-/* 
-  --image-seal: url('/img/OakClay-Vector.svg');
-  --image-logo: url('/img/PNG-Logo-B-Black.png');
-*/
 
 }
