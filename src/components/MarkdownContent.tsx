@@ -37,28 +37,28 @@ export default function MarkdownContent({ content, className = "" }: MarkdownCon
           li: (props) => (
             <li className="my-1" {...props} />
           ),
-          blockquote: (props) => (
+          blockquote: ({ node, ...props }) => (
             <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600 my-4" {...props} />
           ),
           code: ({ inline, className, children, ...props }) =>
             inline ? (
-              <code className="bg-gray-100 rounded px-1 py-0.5 font-mono text-sm" {...props}>
+              <code className={`bg-gray-100 rounded px-1 py-0.5 font-mono text-sm ${className ?? ""}`} {...props}>
                 {children}
               </code>
             ) : (
               <pre className="bg-gray-900 text-gray-100 rounded p-4 overflow-x-auto my-4">
-                <code className="font-mono text-sm" {...props}>
+                <code className={`font-mono text-sm ${className ?? ""}`} {...props}>
                   {children}
                 </code>
               </pre>
             ),
-          table: (props) => (
+          table: ({ node, ...props }) => (
             <table className="border-collapse border border-gray-300 my-4" {...props} />
           ),
-          th: (props) => (
+          th: ({ node, ...props }) => (
             <th className="border border-gray-300 bg-gray-100 px-2 py-1 font-semibold" {...props} />
           ),
-          td: (props) => (
+          td: ({ node, ...props }) => (
             <td className="border border-gray-300 px-2 py-1" {...props} />
           ),
         }}
