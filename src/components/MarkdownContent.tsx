@@ -37,7 +37,7 @@ export default function MarkdownContent({ content, className = "" }: MarkdownCon
           li: (props) => (
             <li className="my-1" {...props} />
           ),
-          blockquote: ({ node, ...props }) => (
+          blockquote: (props) => (
             <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600 my-4" {...props} />
           ),
           code: ({ inline, className, children, ...props }) =>
@@ -52,13 +52,13 @@ export default function MarkdownContent({ content, className = "" }: MarkdownCon
                 </code>
               </pre>
             ),
-          table: ({ node, ...props }) => (
+          table: (props) => (
             <table className="border-collapse border border-gray-300 my-4" {...props} />
           ),
-          th: ({ node, ...props }) => (
+          th: (props) => (
             <th className="border border-gray-300 bg-gray-100 px-2 py-1 font-semibold" {...props} />
           ),
-          td: ({ node, ...props }) => (
+          td: (props) => (
             <td className="border border-gray-300 px-2 py-1" {...props} />
           ),
         }}
