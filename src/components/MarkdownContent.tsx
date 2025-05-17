@@ -40,8 +40,8 @@ export default function MarkdownContent({ content, className = "" }: MarkdownCon
           blockquote: (props) => (
             <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600 my-4" {...props} />
           ),
-          code: ({ inline, className, children, ...props }) =>
-            inline ? (
+          code({inline, className, children, ...props}: any) {
+            return inline ? (
               <code className={`bg-gray-100 rounded px-1 py-0.5 font-mono text-sm ${className ?? ""}`} {...props}>
                 {children}
               </code>
@@ -51,7 +51,8 @@ export default function MarkdownContent({ content, className = "" }: MarkdownCon
                   {children}
                 </code>
               </pre>
-            ),
+            );
+          },
           table: (props) => (
             <table className="border-collapse border border-gray-300 my-4" {...props} />
           ),
