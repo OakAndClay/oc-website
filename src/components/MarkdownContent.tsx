@@ -40,14 +40,17 @@ export default function MarkdownContent({ content, className = "" }: MarkdownCon
           blockquote: (props) => (
             <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600 my-4" {...props} />
           ),
-          code({inline, className, children, ...props}: any) {
+          code(
+            props: React.ComponentProps<'code'> & { inline?: boolean; children?: React.ReactNode }
+          ) {
+            const { inline, className, children, ...rest } = props;
             return inline ? (
-              <code className={`bg-gray-100 rounded px-1 py-0.5 font-mono text-sm ${className ?? ""}`} {...props}>
+              <code className={`bg-gray-100 rounded px-1 py-0.5 font-mono text-sm ${className ?? ""}`} {...rest}>
                 {children}
               </code>
             ) : (
               <pre className="bg-gray-900 text-gray-100 rounded p-4 overflow-x-auto my-4">
-                <code className={`font-mono text-sm ${className ?? ""}`} {...props}>
+                <code className={`font-mono text-sm ${className ?? ""}`} {...rest}>
                   {children}
                 </code>
               </pre>
