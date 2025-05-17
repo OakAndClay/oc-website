@@ -13,34 +13,34 @@ export default function MarkdownContent({ content, className = "" }: MarkdownCon
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          h1: ({ node, ...props }) => (
+          h1: (props) => (
             <h1 className="text-5xl font-bold mt-8 mb-4 border-b pb-2" {...props} />
           ),
-          h2: ({ node, ...props }) => (
+          h2: (props) => (
             <h2 className="text-4xl font-semibold mt-8 mb-4 border-b pb-1" {...props} />
           ),
-          h3: ({ node, ...props }) => (
+          h3: (props) => (
             <h3 className="text-3xl font-semibold mt-6 mb-2" {...props} />
           ),
-          h4: ({ node, ...props }) => (
+          h4: (props) => (
             <h4 className="text-xl font-semibold mt-4 mb-2" {...props} />
           ),
-          p: ({ node, ...props }) => (
+          p: (props) => (
             <p className="my-2" {...props} />
           ),
-          ul: ({ node, ...props }) => (
+          ul: (props) => (
             <ul className="list-disc list-inside my-2" {...props} />
           ),
-          ol: ({ node, ...props }) => (
+          ol: (props) => (
             <ol className="list-decimal list-inside my-2" {...props} />
           ),
-          li: ({ node, ...props }) => (
+          li: (props) => (
             <li className="my-1" {...props} />
           ),
-          blockquote: ({ node, ...props }) => (
+          blockquote: (props) => (
             <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600 my-4" {...props} />
           ),
-          code: ({ node, inline, className, children, ...props }) =>
+          code: ({ inline, className, children, ...props }) =>
             inline ? (
               <code className="bg-gray-100 rounded px-1 py-0.5 font-mono text-sm" {...props}>
                 {children}
@@ -52,13 +52,13 @@ export default function MarkdownContent({ content, className = "" }: MarkdownCon
                 </code>
               </pre>
             ),
-          table: ({ node, ...props }) => (
+          table: (props) => (
             <table className="border-collapse border border-gray-300 my-4" {...props} />
           ),
-          th: ({ node, ...props }) => (
+          th: (props) => (
             <th className="border border-gray-300 bg-gray-100 px-2 py-1 font-semibold" {...props} />
           ),
-          td: ({ node, ...props }) => (
+          td: (props) => (
             <td className="border border-gray-300 px-2 py-1" {...props} />
           ),
         }}
