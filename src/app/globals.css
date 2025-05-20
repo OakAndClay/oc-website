@@ -3,7 +3,6 @@
 */
 
 @import "tailwindcss";
-/*@config "./tailwind.config.js";*/
 
 .bg-image-container {
   position: relative;
@@ -21,7 +20,7 @@
   background-position: center 150px;;
   background-repeat: no-repeat;
   background-attachment: fixed; /* Fixed background */
-  opacity: 0.15; /* Background image opacity */
+  opacity: 0.08; /* Background image opacity */
   z-index: -1; /* Place behind content */
 }
 
@@ -53,9 +52,7 @@
   src: url('/fonts/Roboto-Bold.woff2') format('woff2');
 }
 
-  @theme {
+@theme {
   --font-cinzel: 'Cinzel', serif;
   --font-roboto: 'Roboto', sans-serif;
-
-
 }
