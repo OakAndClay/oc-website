@@ -7,6 +7,11 @@ import Link from 'next/link';
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Function to close the menu
+  const handleCloseMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <html lang="en">
       <head>
@@ -21,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="bg-gray-600 bg-image-container">
+      <body className="bg-stone-400 bg-image-container">
         <header className="sticky top-0 z-50 bg-white flex items-center p-2 shadow-gray-900 shadow-2xl mb-30">
           <Link href="/">
             <img 
@@ -56,13 +61,31 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <div className="absolute right-0 mt-2 w-48 bg-gray-100 border border-gray-200 shadow-lg z-50">
                 <ul className="py-2">
                   <li>
-                    <Link href="/timber-terminology" className="block px-4 py-2 hover:bg-gray-100">Terminology</Link>
+                    <Link 
+                      href="/timber-terminology" 
+                      className="block px-4 py-2 hover:bg-gray-100"
+                      onClick={handleCloseMenu}
+                    >
+                      Terminology
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/custom-craft" className="block px-4 py-2 hover:bg-gray-100">Custom Craft</Link>
+                    <Link 
+                      href="/custom-craft" 
+                      className="block px-4 py-2 hover:bg-gray-100"
+                      onClick={handleCloseMenu}
+                    >
+                      Custom Craft
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/about-us" className="block px-4 py-2 hover:bg-gray-100">About Us</Link>
+                    <Link 
+                      href="/about-us" 
+                      className="block px-4 py-2 hover:bg-gray-100"
+                      onClick={handleCloseMenu}
+                    >
+                      About Us
+                    </Link>
                   </li>
                   {/* Add more menu items here */}
                 </ul>

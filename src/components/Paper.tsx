@@ -14,7 +14,7 @@ export default function Paper({ children, className = "" }: PaperProps) {
                   shadow-2xl 
                   p-10 
                   w-full 
-                  max-w-3xl 
+                  max-w-2xl 
                   mb-50 
                   border-2 
                   border-gray-900 
