@@ -12,9 +12,9 @@ export default function CustomCraftPage() {
             masterpieces. We work closely with you to bring your dream timber frame 
             project to life by crafting preliminary sketches, laying out 2D designs, 
             and even creating jaw-dropping 3D renderings. With our keen eye for detail 
-            and a passion for blending functionality with stunning aesthetics, we'll 
+            and a passion for blending functionality with stunning aesthetics, we&apos;ll 
             set you on the right track for your timber frame construction journey. 
-            Let's collaborate and ignite your imagination as we help you realize the 
+            Let&apos;s collaborate and ignite your imagination as we help you realize the 
             endless possibilities for your timber frame dreams!
           </p>
           <h3 className="font-cinzel text-2xl mb-4 font-bold mt-10">Permit and Engineered Drawings</h3>
@@ -35,11 +35,11 @@ export default function CustomCraftPage() {
             Are you a DIY enthusiast looking to embark on a timber frame fabrication project? 
             Look no further! We offer a specialized service of providing detailed piece 
             drawings for DIY timber frame projects. With our expertise in timber frame 
-            design and construction, we'll provide you with comprehensive plans and diagrams 
+            design and construction, we&apos;ll provide you with comprehensive plans and diagrams 
             that outline each component and connection of your timber frame structure. 
             These easy-to-follow drawings will empower you to confidently tackle the 
             fabrication process, ensuring accuracy and efficiency every step of the way. 
-            Whether you're building a small structure or a full-scale timber frame residence, 
+            Whether you&apos;re building a small structure or a full-scale timber frame residence, 
             our piece drawings will be your trusted guide, making your DIY timber frame 
             fabrication journey a rewarding and successful endeavor.
           </p>
