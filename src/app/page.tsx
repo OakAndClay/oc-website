@@ -17,11 +17,11 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <h1 className="font-cinzel text-4xl sm:text-5xl lg:text-6xl font-bold text-stone-800 mb-6 leading-tight">
-            Handcrafted Timber Frame Kits
+            Custom Handcrafted Timber Frames and Affordable Kits
           </h1>
           <p className="font-roboto text-lg sm:text-xl text-stone-700 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Craft your dream retreat with sustainably sourced Douglas Fir from the Pacific Northwest.
-            Traditional mortise and tenon joinery for timeless durability.
+            Built with traditional mortise and tenon joinery from select species like Douglas Fir, White Oak, Yellow Cedar, and Cypress.
+            Timeless quality for your dream retreat.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
