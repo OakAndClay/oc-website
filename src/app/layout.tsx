@@ -136,8 +136,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   <h3 className="font-cinzel text-xl text-white">Oak and Clay</h3>
                 </div>
                 <p className="font-roboto text-stone-400 text-sm leading-relaxed">
-                  Crafting timeless timber frame kits with traditional mortise and tenon joinery.
-                  Sustainable Douglas Fir from the Pacific Northwest.
+                  Custom handcrafted timber frames and affordable kits — built with traditional joinery and care.
                 </p>
               </div>
 
@@ -165,10 +164,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   Have questions about our timber frame kits?
                 </p>
                 <p className="font-roboto text-stone-400 text-sm">
-                  Email: info@oakandclay.com
+                  Email: craft@oakandclay.com
                 </p>
                 <p className="font-roboto text-stone-400 text-sm">
-                  Phone: (555) 123-4567
+                  Phone: (434) 305-2062
                 </p>
               </div>
             </div>
@@ -176,7 +175,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             {/* Copyright */}
             <div className="border-t border-stone-700 mt-8 pt-8 text-center">
               <p className="font-roboto text-stone-500 text-sm">
-                &copy; {new Date().getFullYear()} Oak and Clay. All rights reserved.
+                &copy; {new Date().getFullYear()} Oak and Clay LLC. All rights reserved.
               </p>
             </div>
           </div>
