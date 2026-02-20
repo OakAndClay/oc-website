@@ -3,6 +3,8 @@
 import './globals.css';
 import { ReactNode, useState } from 'react';
 import Link from 'next/link';
+import CartIcon from '@/components/cart/CartIcon';
+import AuthButtons from '@/components/auth/AuthButtons';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +16,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/cottage', label: 'Kits' },
+    { href: '/kits', label: 'Kits' },
     { href: '/custom-craft', label: 'Custom Craft' },
     { href: '/about-us', label: 'About Us' },
     { href: '/timber-terminology', label: 'Terminology' },
@@ -64,9 +66,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-stone-800 transition-all duration-300 group-hover:w-full"></span>
                   </Link>
                 ))}
+                <AuthButtons />
+                <CartIcon />
               </nav>
 
-              {/* Mobile Hamburger Button */}
+              {/* Mobile Cart + Menu */}
+              <div className="lg:hidden flex items-center gap-2">
+                <CartIcon />
+              </div>
               <div className="lg:hidden relative">
                 <button
                   className="w-12 h-12 flex items-center justify-center rounded-full bg-stone-100 hover:bg-stone-200 transition-colors"
@@ -108,6 +115,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                           </Link>
                         </li>
                       ))}
+                      <li className="border-t border-stone-200 mt-1 pt-1">
+                        <Link
+                          href="/login"
+                          className="block px-4 py-3 hover:bg-stone-100 font-roboto text-stone-700 transition-colors"
+                          onClick={handleCloseMenu}
+                        >
+                          Sign In / Account
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                 )}
@@ -176,6 +192,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <div className="border-t border-stone-700 mt-8 pt-8 text-center">
               <p className="font-roboto text-stone-500 text-sm">
                 &copy; {new Date().getFullYear()} Oak and Clay LLC. All rights reserved.
+                {' · '}
+                <Link href="/terms" className="hover:text-white transition-colors">Terms of Use</Link>
               </p>
             </div>
           </div>

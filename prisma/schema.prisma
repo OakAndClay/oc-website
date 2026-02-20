@@ -1,0 +1,161 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String    @id @default(cuid())
+  name            String?
+  email           String    @unique
+  emailVerified   DateTime?
+  image           String?
+  hashedPassword  String?
+  termsAcceptedAt DateTime?
+  isAdmin         Boolean   @default(false)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  accounts Account[]
+  sessions Session[]
+  orders   Order[]
+  cartItems CartItem[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// Global pricing rates (e.g., material_rate_per_unit, labor_rate_per_hour, crypto_fee_percentage)
+model PricingConfig {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       Float
+  description String?
+  updatedAt   DateTime @updatedAt
+}
+
+model Product {
+  id          String  @id @default(cuid())
+  name        String
+  slug        String  @unique
+  description String  @db.Text
+  images      String[] // URLs
+  type        ProductType
+  // Quantities for price calculation: price = (materialQty * material_rate) + (laborQty * labor_rate) + otherHardCosts
+  materialQty Float   @default(0)
+  laborQty    Float   @default(0)
+  otherHardCosts Float @default(0)
+  // Keys referencing PricingConfig for rate lookups
+  materialRateKey String @default("material_rate_per_unit")
+  laborRateKey    String @default("labor_rate_per_hour")
+  // For plans, a simpler flat pricing config key
+  planPriceKey    String? // e.g., "plan_price_cottage"
+  active      Boolean @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  orderItems OrderItem[]
+  cartItems  CartItem[]
+}
+
+enum ProductType {
+  kit
+  plans
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  quantity  Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id])
+
+  @@unique([userId, productId])
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  userId          String
+  status          OrderStatus @default(pending)
+  paymentMethod   PaymentMethod?
+  subtotal        Float
+  cryptoFee       Float       @default(0)
+  total           Float
+  depositAmount   Float?
+  depositPaidAt   DateTime?
+  balancePaidAt   DateTime?
+  stripePaymentId String?
+  nowpaymentsId   String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  user  User        @relation(fields: [userId], references: [id])
+  items OrderItem[]
+}
+
+enum OrderStatus {
+  pending
+  deposit_paid
+  balance_paid
+  fabrication_scheduled
+  shipped
+  completed
+  cancelled
+}
+
+enum PaymentMethod {
+  stripe
+  crypto
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  productId String
+  quantity  Int     @default(1)
+  unitPrice Float
+  total     Float
+
+  order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id])
+}
