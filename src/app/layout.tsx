@@ -146,7 +146,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <div className="flex items-center gap-3 mb-4">
                   <img
                     className="w-12 h-12"
-                    src="/img/PNG-Logo-B-Black.png"
+                    src="/img/logo-white.png"
                     alt="Company Logo"
                   />
                   <h3 className="font-cinzel text-xl text-white">Oak and Clay</h3>
